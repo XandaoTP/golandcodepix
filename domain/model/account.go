@@ -12,6 +12,7 @@ type Account struct {
 	Bank      *Bank     `valid:"-"`
 	Number    string    `json:"number" valid:"-"`
 	PixKey    []*PixKey `valid:"-"`
+	BankID    interface{}
 }
 
 func (account *Account) isValid() error {

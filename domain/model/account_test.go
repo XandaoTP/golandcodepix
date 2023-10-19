@@ -4,6 +4,8 @@ import (
 	"testing"
 
 	uuid "github.com/satori/go.uuid"
+
+	"github.com/XandaoTP/golandcodepix/domain/model"
 	"github.com/stretchr/testify/require"
 )
 
