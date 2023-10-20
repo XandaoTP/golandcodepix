@@ -8,11 +8,11 @@ import (
 
 type Account struct {
 	Base      `valid:"required"`
-	OwnerName string    `json:"owner_name" valid:"notnull"`
+	OwnerName string    `gorm:"column:owner_name;type:varchar(255);notnull" valid:"notnull"`
 	Bank      *Bank     `valid:"-"`
-	Number    string    `json:"number" valid:"-"`
-	PixKey    []*PixKey `valid:"-"`
-	BankID    interface{}
+	BankID    string    `gorm:"column:bank_id;type:uuid;notnull" valid:"-"`
+	Number    string    `json:"number" gorm:"" valid:"-"`
+	PixKey    []*PixKey `gorm:"ForeingKey:AccountID" valid:"_"`
 }
 
 func (account *Account) isValid() error {
